@@ -1,0 +1,40 @@
+<h2>Product List Component</h2>
+<h3>Data Binding Examples</h3>
+<div class="alert alert-info">String Interpolation Examples</div>
+<div class="row">
+  <div class="col-md-3">Data Binding Example Code Expression</div>
+  <div class="col-md-3">{{4+5}}</div>
+</div>
+<div class="row">
+  <div class="col-md-3">Data Binding Example from Component (string)</div>
+  <div class="col-md-3">{{name}}</div>
+</div>
+<div class="row">
+  <div class="col-md-3">Data Binding Example from Component (number)</div>
+  <div class="col-md-3">{{num}}</div>
+</div>
+<div class="row">
+  <div class="col-md-3">Data Binding Example from Component (boolean)</div>
+  <div class="col-md-3">{{isActive}}</div>
+</div>
+<div class="row">
+  <div class="col-md-3">Data Binding Example from Component (Calling Function)</div>
+  <div class="col-md-3">{{getProductName()}}</div>
+</div>
+
+<div class="alert alert-warning">String Interpolation Don'ts</div>
+<div class="row">
+  <div class="col-md-3">Data Binding Don'ts Example 1</div>
+  <!-- <div class="col-md-3">{{isActive = true}}</div> -->
+  <div class="col-md-3">Bindings Cannot contain Assignment Operators</div>
+</div>
+<div class="row">
+  <div class="col-md-3">Data Binding Don'ts Example 2</div>
+  <!-- <div class="col-md-3">{{4+5;5+6}}</div> -->
+  <div class="col-md-3">Bindings Cannot contain chained expressions</div>
+</div>
+<div class="row">
+  <div class="col-md-3">Data Binding Don'ts Example 3</div>
+  <!-- <div class="col-md-3">{{new Product()}}</div> -->
+  <div class="col-md-3">Bindings Cannot contain new Object creation code</div>
+</div>
