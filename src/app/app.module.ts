@@ -9,6 +9,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { StringInterpolationComponent } from './components/string-interpolation/string-interpolation.component';
 import { PropertyBindingComponent } from './components/property-binding/property-binding.component';
 import { EventBindingComponent } from './components/event-binding/event-binding.component';
+import { StructDirectivesComponent } from './components/struct-directives/struct-directives.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EventBindingComponent } from './components/event-binding/event-binding.
     ProductListComponent,
     StringInterpolationComponent,
     PropertyBindingComponent,
-    EventBindingComponent
+    EventBindingComponent,
+    StructDirectivesComponent
   ],
   imports: [
     BrowserModule,

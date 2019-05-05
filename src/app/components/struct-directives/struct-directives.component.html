@@ -1,0 +1,8 @@
+<!-- <div class="alert alert-info" [hidden]="!messageFlag" >Ng If Example</div>-->
+<div class="alert alert-info" *ngIf="messageFlag" >Ng If Example</div>
+<button class="btn btn-primary" (click)="messageFlag=!messageFlag">Show/Hide</button> 
+
+<h3>ngFor Example</h3>
+<div class="alert alert-danger" *ngFor="let name of names">
+  {{name}}
+</div>
