@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-primary" (click)="OnButtonClicked()">Click Event Example</button>
+    </div>
+    <div class="col-md-4">{{message}}</div>
+  </div>
+  <div class="row">
+      <div class="col-md-3">
+          One Way Binding Example
+        </div>
+    <div class="col-md-3">
+      <input type="text" class="form-control" (keyup)="OnChange($event)" />
+    </div>
+    <div class="col-md-3">{{textboxMessage}}</div>
+    <div class="col-md-3">
+      <button (click)="OneWayTest()" class="btn btn-primary" >One Way Test</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      Two Way Binding Example
+    </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control" [(ngModel)]="twoWayMessage" />
+
+        <!-- <input 
+        type="text" 
+        class="form-control" 
+        [ngModel]="twoWayMessage"
+        (ngModelChange)="textChange($event)"
+         /> -->
+      </div>
+      <div class="col-md-3">{{twoWayMessage}}</div>
+      <div class="col-md-3">
+        <button (click)="TwoWayTest()" class="btn btn-primary" >Two Way Test</button>
+      </div>
+    </div>
+</div>
