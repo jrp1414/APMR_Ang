@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">
+            Filter By:
+        </div>
+        <div class="col-md-2">
+            <input type="text" class="form-control" [(ngModel)]="filterBy" />
+        </div>
+        <div class="col-md-6">
+            <!-- <div *ngIf="filterBy.length>0 else abc" class="alert alert-info">{{filterBy}}</div>
+            <ng-template #abc>
+                    <div class="alert alert-danger">Please enter Filter Criteria</div>
+            </ng-template> -->
+            <!-- <ng-template [ngIf]="filterBy.length>0">
+                <div class="alert alert-info">{{filterBy}}</div>
+            </ng-template> -->
+
+            <div class="alert alert-info" [hidden]="filterBy.length==0">{{filterBy}}</div>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Product Code</th>
+                <th>Release Date</th>
+                <th>Desxription</th>
+                <th>Price</th>
+                <th>Star Rating</th>
+                <th>Image</th>
+                <th>Email Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prod of productList">
+                <td>{{prod.productId}}</td>
+                <td>{{prod.productName}}</td>
+                <td>{{prod.productCode}}</td>
+                <td>{{prod.releaseDate}}</td>
+                <td>{{prod.description}}</td>
+                <td>{{prod.price}}</td>
+                <td><span [class.bold]="prod.starRating>3" [class.green]="prod.starRating>2" >{{prod.starRating}}</span></td>
+                <!-- <td><img [src]="prod.imageUrl" [title]="prod.productName" /></td> -->
+                <!-- <td><img src={{prod.imageUrl}} style="width:80px;height:80px;" [title]="prod.productName" /></td> -->
+                <td><img src={{prod.imageUrl}} [style.width]="imageWidth" [style.height]="imageHeight" [title]="prod.productName" /></td>
+                <td>{{prod.emailId}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -22,14 +22,14 @@
       Two Way Binding Example
     </div>
       <div class="col-md-3">
-        <input type="text" class="form-control" [(ngModel)]="twoWayMessage" />
+        <!-- <input type="text" class="form-control" [(ngModel)]="twoWayMessage" /> -->
 
-        <!-- <input 
+      <input 
         type="text" 
         class="form-control" 
         [ngModel]="twoWayMessage"
         (ngModelChange)="textChange($event)"
-         /> -->
+         />
       </div>
       <div class="col-md-3">{{twoWayMessage}}</div>
       <div class="col-md-3">

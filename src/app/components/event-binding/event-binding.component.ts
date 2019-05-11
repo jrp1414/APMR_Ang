@@ -31,7 +31,7 @@ export class EventBindingComponent{
   }
 
   textChange(data:string){
-    this.twoWayMessage = data.toLocaleLowerCase();    
+    this.twoWayMessage = data.toLocaleUpperCase();    
   }
 
 }

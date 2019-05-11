@@ -2,3 +2,14 @@
     background-color: aqua;
     font-weight: bold;
 }
+
+.bold{
+    font-weight: bold;
+    background-color: aqua;
+    color: darkblue;
+}
+.green{
+    font-weight:bold;
+    background-color: aquamarine;
+    color: brown;
+}
