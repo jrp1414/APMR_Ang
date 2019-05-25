@@ -20,7 +20,7 @@
     </div>
     <div class="row">
         <div class="col-md-4" *ngFor="let prod of productList">
-            <app-product-thumbnail [productDetails]="prod"></app-product-thumbnail>
+            <app-product-thumbnail [productDetails]="prod" (pce)="getDataFromChild($event)" ></app-product-thumbnail>
         </div>
     </div>
 </div>
