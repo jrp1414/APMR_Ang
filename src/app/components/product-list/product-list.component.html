@@ -4,7 +4,7 @@
             Filter By:
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control" [(ngModel)]="filterBy" />
+            <input type="text" class="form-control" [(ngModel)]="filterBy" #filter />
         </div>
         <div class="col-md-6">
             <!-- <div *ngIf="filterBy.length>0 else abc" class="alert alert-info">{{filterBy}}</div>
@@ -15,12 +15,17 @@
                 <div class="alert alert-info">{{filterBy}}</div>
             </ng-template> -->
 
-            <div class="alert alert-info" [hidden]="filterBy.length==0">{{filterBy}}</div>
+            <!-- <div class="alert alert-info" [hidden]="filterBy.length==0">{{filterBy}}</div> -->
+            <div class="alert alert-info">{{filter.value}}</div>
+
         </div>
     </div>
-    <div class="row">
+    <div class="row" #testDiv>
         <div class="col-md-4" *ngFor="let prod of productList">
-            <app-product-thumbnail [productDetails]="prod" (pce)="getDataFromChild($event)" ></app-product-thumbnail>
+            <app-product-thumbnail [productDetails]="prod" (pce)="getDataFromChild($event)" >
+                <h2>Test HTML {{prod.productName}} Header</h2>
+                <h1>Test</h1>
+            </app-product-thumbnail>
         </div>
     </div>
 </div>

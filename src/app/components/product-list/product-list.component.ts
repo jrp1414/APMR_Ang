@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Product, products } from './../../models/product-api';
 
 @Component({
   selector: 'app-product-list',
@@ -12,6 +13,9 @@ export class ProductListComponent {
 
   imageWidth: string = "100px";
   imageHeight: string = "100px";
+
+  @ViewChild('filter') filter:ElementRef;
+  @ViewChild('testDiv') testDiv:ElementRef;
 
   filterBy: string = "";
   getStyles() {
@@ -38,8 +42,10 @@ export class ProductListComponent {
 
   getDataFromChild(data) {
     console.log(data);
+    console.log(this.filter.nativeElement.value);
+    console.log(this.testDiv);
   }
 
-  // productList: any[] = 
+  productList: Product[] = products; 
 }
 
