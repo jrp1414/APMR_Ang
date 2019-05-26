@@ -49,7 +49,7 @@ export const products: Product[] = [
             'descText': "Leaf Rake Description",
             "mfdYear": 2018
         },
-        "price": 19.95,
+        "price": 19.95485968596,
         "starRating": 3,
         "imageUrl": "https://www.harrodhorticultural.com/uploads/images/products/GGT-886_Sneeboer_Leaf_Rakes_1.jpg",
         "emailId": "test@test.com"
@@ -63,7 +63,7 @@ export const products: Product[] = [
             'descText': "15 gallon capacity rolling garden cart",
             "mfdYear": 2013
         },
-        "price": 32.99,
+        "price": 0,
         "starRating": 4,
         "imageUrl": "https://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png",
         "emailId": "test@test.com"

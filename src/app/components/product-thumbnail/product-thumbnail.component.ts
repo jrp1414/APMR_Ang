@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } fro
   // encapsulation:ViewEncapsulation.None
 })
 export class ProductThumbnailComponent implements OnInit {
-
+  today = new Date();
   constructor() { }
 
   @Input("productDetails") product:any;

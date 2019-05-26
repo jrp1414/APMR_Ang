@@ -1,6 +1,9 @@
 <div class="card bg-light">
     <div class="card-body">
         <ng-content></ng-content>
+        <div class="alert alert-info">
+            Today - {{today | date :'dd/MM/yy' }}
+        </div>
         <div class="row">
           <div class="col-md-6">
               Product Id
@@ -14,7 +17,7 @@
                 Product Name
             </div>
             <div class="col-md-6">
-                {{product.productName}}
+                {{product.productName | uppercase | lowercase}}
             </div>
           </div>
           <div class="row">
@@ -22,7 +25,7 @@
                   Product Code
               </div>
               <div class="col-md-6">
-                  {{product.productCode}}
+                  {{product.productCode | lowercase}}
               </div>
           </div>
           <div class="row">
@@ -55,7 +58,7 @@
                   Price
               </div>
               <div class="col-md-6">
-                  {{product.price}}
+                  {{product.price | currency :'USD':true:'2.2'}}
               </div>
           </div>
           <div class="row">

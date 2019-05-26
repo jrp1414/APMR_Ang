@@ -23,9 +23,10 @@
     <div class="row" #testDiv>
         <div class="col-md-4" *ngFor="let prod of productList">
             <app-product-thumbnail [productDetails]="prod" (pce)="getDataFromChild($event)" >
-                <h2>Test HTML {{prod.productName}} Header</h2>
-                <h1>Test</h1>
+                
             </app-product-thumbnail>
+
+            <div>{{prod | json}}</div>
         </div>
     </div>
 </div>
