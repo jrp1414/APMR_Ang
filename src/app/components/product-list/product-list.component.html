@@ -16,17 +16,19 @@
             </ng-template> -->
 
             <!-- <div class="alert alert-info" [hidden]="filterBy.length==0">{{filterBy}}</div> -->
+            <button class="btn btn-primary" (click)="ImpurityTest()">Impurity Test</button>
             <div class="alert alert-info">{{filter.value}}</div>
 
         </div>
     </div>
+
     <div class="row" #testDiv>
-        <div class="col-md-4" *ngFor="let prod of productList">
+        <div class="col-md-4" *ngFor="let prod of productList | filterProduct:filterBy">
             <app-product-thumbnail [productDetails]="prod" (pce)="getDataFromChild($event)" >
                 
             </app-product-thumbnail>
 
-            <div>{{prod | json}}</div>
+            <!-- <div>{{prod | json}}</div> -->
         </div>
     </div>
 </div>

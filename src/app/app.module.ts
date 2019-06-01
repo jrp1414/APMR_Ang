@@ -11,6 +11,9 @@ import { PropertyBindingComponent } from './components/property-binding/property
 import { EventBindingComponent } from './components/event-binding/event-binding.component';
 import { StructDirectivesComponent } from './components/struct-directives/struct-directives.component';
 import { ProductThumbnailComponent } from './components/product-thumbnail/product-thumbnail.component';
+import { ShortenPipe } from "./pipes/shorten.pipe";
+import { ConvertToPipe } from './pipes/convert-to.pipe';
+import { FilterProductPipe } from './pipes/filter-product.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { ProductThumbnailComponent } from './components/product-thumbnail/produc
     PropertyBindingComponent,
     EventBindingComponent,
     StructDirectivesComponent,
-    ProductThumbnailComponent
+    ProductThumbnailComponent,
+    ShortenPipe,
+    ConvertToPipe,
+    FilterProductPipe
   ],
   imports: [
     BrowserModule,

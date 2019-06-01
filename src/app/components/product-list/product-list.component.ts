@@ -46,6 +46,23 @@ export class ProductListComponent {
     console.log(this.testDiv);
   }
 
+  ImpurityTest(){
+    this.productList.push({
+      "productId": 11,
+      "productName": "Hammer",
+      "productCode": "GDN-0014",
+      "releaseDate": "March 19, 2018",
+      "description": {
+          'descText': "Computer is a good thing",
+          "mfdYear": 2018
+      },
+      "price": 19.95485968596,
+      "starRating": 3,
+      "imageUrl": "https://www.harrodhorticultural.com/uploads/images/products/GGT-886_Sneeboer_Leaf_Rakes_1.jpg",
+      "emailId": "test@test.com"
+  })
+  }
+
   productList: Product[] = products; 
 }
 
