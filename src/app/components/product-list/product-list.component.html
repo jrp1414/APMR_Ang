@@ -1,5 +1,7 @@
 <div class="container">
     <div basic-highlight>Basic Highlight Test</div>
+    <!-- <div appBetterHighlight [defaultColor]="'aqua'" [highlightColor]="'yellow'">Better Directive Example</div> -->
+    <div [appBetterHighlight]="'aqua'" [highlightColor]="'yellow'">Better Directive Example</div>
     <div class="row">
         <div class="col-md-1">
             Filter By:
@@ -7,9 +9,9 @@
         <div class="col-md-2">
             <input type="text" class="form-control" [(ngModel)]="filterBy" #filter />
         </div>
-        <div class="col-md-6">
-            <!-- <div *ngIf="filterBy.length>0 else abc" class="alert alert-info">{{filterBy}}</div>
-            <ng-template #abc>
+        <div class="col-md-2">
+             
+            <!--<ng-template #abc>
                     <div class="alert alert-danger">Please enter Filter Criteria</div>
             </ng-template> -->
             <!-- <ng-template [ngIf]="filterBy.length>0">
@@ -18,8 +20,14 @@
 
             <!-- <div class="alert alert-info" [hidden]="filterBy.length==0">{{filterBy}}</div> -->
             <button class="btn btn-primary" (click)="ImpurityTest()">Impurity Test</button>
-            <div class="alert alert-info">{{filter.value}}</div>
+            <!-- <div class="alert alert-info">{{filter.value}}</div> -->
 
+        </div>
+        <!-- <div *ngIf="filterBy.length>0" class="alert alert-info col-md-4">{{filterBy}}</div> -->
+        <div *appUnless="filterBy.length<1" class="alert alert-info col-md-4">
+            <div>Test</div>
+            <div>Test</div>
+            <div>Test</div>
         </div>
     </div>
 
