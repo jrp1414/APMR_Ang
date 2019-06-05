@@ -1,0 +1,94 @@
+<div class="card bg-light">
+  <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+            Product Id
+        </div>
+        <div class="col-md-6">
+            {{product.productId}}
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+              Product Name
+          </div>
+          <div class="col-md-6">
+              {{product.productName | uppercase | lowercase}}
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                Product Code
+            </div>
+            <div class="col-md-6">
+                {{product.productCode | lowercase |test:"-":"@" |shorten}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                Release Date
+            </div>
+            <div class="col-md-6">
+                {{product.releaseDate}}
+            </div>
+        </div>
+        <ng-content></ng-content>
+        <div class="row">
+            <div class="col-md-6">
+                Description Text
+            </div>
+            <div class="col-md-6">
+                {{product.description?.descText | shorten }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                Manufacturing Year
+            </div>
+            <div class="col-md-6">
+                {{product.description?.mfdYear}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                Price
+            </div>
+            <div class="col-md-6">
+                {{product.price | currency :'USD':true:'2.2'}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                Star Rating
+            </div>
+            <div class="col-md-6">
+                {{product.starRating}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                Image
+            </div>
+            <div class="col-md-6">
+                <img src={{product.imageUrl}} style="width: 100px;height:100px;" [title]="product.productName" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                Email Id
+            </div>
+            <div class="col-md-6">
+                {{product.emailId}}
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+              Recieve Data
+          </div>
+          <div class="col-md-6">
+              {{ReceivedData}}
+          </div>
+      </div>
+      <ng-content></ng-content>
+  </div>
+</div>

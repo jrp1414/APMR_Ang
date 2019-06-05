@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoggingService } from './services/logging.service';
 
 @Component({
   // selector: 'app-root',
@@ -15,7 +16,8 @@ import { Component } from '@angular/core';
   // ]
   styleUrls:[
     "./app.component.css"
-  ]
+  ],
+// providers:[LoggingService]
 })
 export class AppComponent {
  name:string="Rajendra"; 

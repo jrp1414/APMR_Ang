@@ -1,13 +1,21 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Product, products } from './../../models/product-api';
+import { LoggingService } from '../../services/logging.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
+  // providers:[LoggingService]
 })
-export class ProductListComponent {
-  constructor() {
+export class ProductListComponent implements OnInit{
+  ReceivedMessage:string;
+  ngOnInit(): void {
+    this.loggingService.notifyParents.subscribe((data)=>{
+      this.ReceivedMessage = data;
+    });
+  }
+  constructor(private loggingService:LoggingService) {
 
   }
 

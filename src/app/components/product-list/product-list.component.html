@@ -33,11 +33,16 @@
 
     <div class="row" #testDiv>
         <div class="col-md-4" *ngFor="let prod of productList | filterProduct:filterBy">
-            <app-product-thumbnail [productDetails]="prod" (pce)="getDataFromChild($event)" >
-                
-            </app-product-thumbnail>
-
-            <!-- <div>{{prod | json}}</div> -->
+            <!-- <app-product-thumbnail [productDetails]="prod" (pce)="getDataFromChild($event)" > -->
+                <app-product-thumbnail [productDetails]="prod" >                
+                </app-product-thumbnail>
         </div>
     </div>
+    <!-- <div class="row" #testDiv>
+        <div class="col-md-4" *ngFor="let prod of productList | filterProduct:filterBy">
+            <app-temp-thumbnail [productDetails]="prod"></app-temp-thumbnail>
+        </div>
+    </div> -->
+    <!-- <div class="alert alert-info">{{ReceivedMessage}}</div> -->
+        
 </div>
