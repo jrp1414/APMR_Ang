@@ -90,8 +90,9 @@
                 Emit Data
             </div>
             <div class="col-md-6">
-                <button class="btn btn-primary" (click)="EmitToParent()" >Emit Data</button>
-                <button class="btn btn-primary" (click)="LogMessage()" >Log Data</button>
+                <button class="btn btn-primary btn-sm" (click)="EmitToParent()" >Emit Data</button>
+                <button class="btn btn-primary btn-sm" (click)="LogMessage()" >Log Data</button>
+                <button class="btn btn-danger btn-sm" (click)="RemoveProduct(product.productId)" >Remove</button>
             </div>
         </div>
         <ng-content></ng-content>

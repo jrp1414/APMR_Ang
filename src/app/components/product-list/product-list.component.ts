@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Product, products } from './../../models/product-api';
 import { LoggingService } from '../../services/logging.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,11 +12,15 @@ import { LoggingService } from '../../services/logging.service';
 export class ProductListComponent implements OnInit{
   ReceivedMessage:string;
   ngOnInit(): void {
+    this.productList = this.productService.GetProducts();
     this.loggingService.notifyParents.subscribe((data)=>{
       this.ReceivedMessage = data;
+      if (data=="Removed") {
+        this.productList = this.productService.GetProducts(); 
+      }
     });
   }
-  constructor(private loggingService:LoggingService) {
+  constructor(private loggingService:LoggingService,private productService:ProductService) {
 
   }
 
@@ -71,6 +76,6 @@ export class ProductListComponent implements OnInit{
   })
   }
 
-  productList: Product[] = products; 
+  productList: Product[] = []; 
 }
 

@@ -30,6 +30,11 @@ export class ProductThumbnailComponent implements OnInit {
     // this.loggingService.log("Test Log");
     this.productService.Test();
   }
+
+  RemoveProduct(productId:number){
+    this.productService.RemoveProduct(productId);
+    this.loggingService.notifyParents.emit("Removed");    
+  }
 }
 
 
