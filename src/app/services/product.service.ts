@@ -25,6 +25,18 @@ export class ProductService {
     return this.productsList;
   }
 
+  GetProductDetails(id:number){
+    
+    let result:Product; 
+    this.productsList.forEach((val)=>{
+      if(val.productId==id){
+        result = val;
+      }
+    });
+
+    return result;
+  }
+
   RemoveProduct(productId:number){
     let tempProductList:Product[] = [];
     this.productsList.forEach((val)=>{
