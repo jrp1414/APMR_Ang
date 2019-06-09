@@ -34,10 +34,16 @@
     <div class="row" #testDiv>
         <div class="col-md-3" *ngFor="let prod of productList | filterProduct:filterBy">
             <!-- <app-product-thumbnail [productDetails]="prod" (pce)="getDataFromChild($event)" > -->
-                <app-product-thumbnail [routerLink]="['/products',prod.productId]" [productDetails]="prod" >                
+                <app-product-thumbnail 
+                    [routerLink]="['/products',prod.productId]" 
+                    [queryParams]="{productCode:prod.productCode,productName:prod.productName}"
+                    [fragment]="prod.productName" 
+                    [productDetails]="prod" >                
                 </app-product-thumbnail>
         </div>
     </div>
+
+    <a routerLink="/products" class="btn btn-primary">Reload Page</a>
     <!-- <div class="row" #testDiv>
         <div class="col-md-4" *ngFor="let prod of productList | filterProduct:filterBy">
             <app-temp-thumbnail [productDetails]="prod"></app-temp-thumbnail>

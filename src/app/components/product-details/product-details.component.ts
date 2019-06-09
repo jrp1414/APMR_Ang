@@ -32,6 +32,28 @@ export class ProductDetailsComponent implements OnInit {
       this.product = this.ps.GetProductDetails(id);
      });
 
+    //  let pCode = this.route.snapshot.queryParams["productCode"];
+    //  let pName = this.route.snapshot.queryParams["productName"];
+
+    //  console.log(pCode);
+    //  console.log(pName);
+
+    // this.route.queryParams.subscribe((qParams)=>{
+    //   console.log(qParams);
+    // });
+
+    // this.route.queryParamMap.subscribe((qParams2)=>{
+    //   console.log(qParams2.get("productCode"));
+    //   console.log(qParams2.get("productName"));
+    // });
+
+
+    // console.log(this.route.snapshot.fragment);
+
+    this.route.fragment.subscribe((f)=>{
+      console.log(f);
+    });
+   
   }
 
   Redirect(){
