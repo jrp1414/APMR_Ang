@@ -30,7 +30,10 @@ export class ProductDetailsComponent implements OnInit {
     this.route.paramMap.subscribe((param)=>{
       let id = +param.get("id");
       this.product = this.ps.GetProductDetails(id);
-     });
+
+      console.log(param.get("test"));
+      console.log(param.get("test2"));
+    });
 
     //  let pCode = this.route.snapshot.queryParams["productCode"];
     //  let pName = this.route.snapshot.queryParams["productName"];
@@ -57,7 +60,12 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   Redirect(){
+    this.router.navigate([5,{test:"Test",test2:15}],{relativeTo:this.route.parent});
+  }
 
+
+  Edit(){
+    this.router.navigate([this.product.productId,"edit"],{relativeTo:this.route.parent});
   }
 
 }

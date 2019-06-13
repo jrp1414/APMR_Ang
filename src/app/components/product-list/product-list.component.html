@@ -1,54 +1,20 @@
-<div class="container">
-    <div basic-highlight>Basic Highlight Test</div>
-    <!-- <div appBetterHighlight [defaultColor]="'aqua'" [highlightColor]="'yellow'">Better Directive Example</div> -->
-    <div [appBetterHighlight]="'aqua'" [highlightColor]="'yellow'">Better Directive Example</div>
-    <div class="row">
-        <div class="col-md-1">
-            Filter By:
-        </div>
-        <div class="col-md-2">
-            <input type="text" class="form-control" [(ngModel)]="filterBy" #filter />
-        </div>
-        <div class="col-md-2">
-             
-            <!--<ng-template #abc>
-                    <div class="alert alert-danger">Please enter Filter Criteria</div>
-            </ng-template> -->
-            <!-- <ng-template [ngIf]="filterBy.length>0">
-                <div class="alert alert-info">{{filterBy}}</div>
-            </ng-template> -->
-
-            <!-- <div class="alert alert-info" [hidden]="filterBy.length==0">{{filterBy}}</div> -->
-            <button class="btn btn-primary" (click)="ImpurityTest()">Impurity Test</button>
-            <div class="alert alert-info">{{filter.value}}</div>
-
-        </div>
-        <!-- <div *ngIf="filterBy.length>0" class="alert alert-info col-md-4">{{filterBy}}</div> -->
-        <div *appUnless="filterBy.length<1" class="alert alert-info col-md-4">
-            <div>Test</div>
-            <div>Test</div>
-            <div>Test</div>
+<div class="panel">
+    <div class="panel-body">
+        <div class="row" >                
+            <div class="col-md-2"  >
+                <ul class="list-group">
+                    <li 
+                        *ngFor="let product of productList" 
+                        class="list-group-item">
+                        <a 
+                            [routerLink]="[product.productId]">
+                                {{product.productName}}</a>
+                        </li>                        
+                    </ul>
+            </div>
+            <div class="col-md-10"  >
+                <router-outlet></router-outlet>
+            </div>
         </div>
     </div>
-
-    <div class="row" #testDiv>
-        <div class="col-md-3" *ngFor="let prod of productList | filterProduct:filterBy">
-            <!-- <app-product-thumbnail [productDetails]="prod" (pce)="getDataFromChild($event)" > -->
-                <app-product-thumbnail 
-                    [routerLink]="['/products',prod.productId]" 
-                    [queryParams]="{productCode:prod.productCode,productName:prod.productName}"
-                    [fragment]="prod.productName" 
-                    [productDetails]="prod" >                
-                </app-product-thumbnail>
-        </div>
-    </div>
-
-    <a routerLink="/products" class="btn btn-primary">Reload Page</a>
-    <!-- <div class="row" #testDiv>
-        <div class="col-md-4" *ngFor="let prod of productList | filterProduct:filterBy">
-            <app-temp-thumbnail [productDetails]="prod"></app-temp-thumbnail>
-        </div>
-    </div> -->
-    <!-- <div class="alert alert-info">{{ReceivedMessage}}</div> -->
-        
 </div>

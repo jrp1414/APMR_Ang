@@ -1,20 +1,23 @@
 <div class="card bg-light">
-  <div class="card-body">
-      <div class="row">
-        <div class="col-md-2">
-            Product Id
+    <div class="card-title">
+        <h3>{{product.productName | uppercase}}</h3>        
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">
+                Product Id
+            </div>
+            <div class="col-md-4">
+                {{product.productId}}
+            </div>
         </div>
-        <div class="col-md-4">
-            {{product.productId}}
-        </div>
-      </div>
-      <div class="row">
-          <div class="col-md-2">
-              Product Name
-          </div>
-          <div class="col-md-4">
-              {{product.productName | uppercase | lowercase}}
-          </div>
+        <div class="row">
+            <div class="col-md-2">
+                Product Name
+            </div>
+            <div class="col-md-4">
+                {{product.productName | uppercase | lowercase}}
+            </div>
         </div>
         <div class="row">
             <div class="col-md-2">
@@ -82,11 +85,12 @@
             </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
-              <button class="btn btn-primary btn-sm" (click)="Redirect()" >Redirect To Products</button>              
-          </div>
-          <div class="col-md-4" [routerLink]="['/products',5]">Click Here to Load 5</div>
-      </div>
-      <ng-content></ng-content>
-  </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary btn-sm" (click)="Redirect()">Redirect To Products</button>
+                <button class="btn btn-primary btn-sm" (click)="Edit()">Edit</button>
+            </div>
+            <div class="col-md-4" [routerLink]="['/products',5]">Click Here to Load 5</div>
+        </div>
+        <ng-content></ng-content>
+    </div>
 </div>

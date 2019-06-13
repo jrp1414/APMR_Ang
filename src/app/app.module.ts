@@ -26,14 +26,24 @@ import { LoggingService } from './services/logging.service';
 import { ProductService } from './services/product.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 // const routeConfig:Route[] = [
 const routeConfig: Routes = [
   { path: "home", component: DashboardComponent },
-  { path: "products", component: ProductListComponent },
-  { path: "products/:id", component: ProductDetailsComponent },
-  { path: "", redirectTo: "home", pathMatch:"full" },
-  { path: "**", redirectTo: "home" },
+  // { path: "products", component: ProductListComponent,canActivate:[AuthGuardService] , children:[
+  {
+    path: "products", component: ProductListComponent,canActivateChild:[AuthGuardService], children: [
+      // { path: ":id", component: ProductDetailsComponent,canActivate: [AuthGuardService] },
+      // { path: ":id/edit", component: ProductEditComponent,canActivate: [AuthGuardService] }
+      { path: ":id", component: ProductDetailsComponent },
+      { path: ":id/edit", component: ProductEditComponent }
+    ]
+  },
+  // { path: "products/:id", component: ProductDetailsComponent },
+  { path: "", redirectTo: "home", pathMatch: "full" },
+  // { path: "**", redirectTo: "home" },
 ];
 
 
@@ -56,7 +66,8 @@ const routeConfig: Routes = [
     UnlessDirective,
     TempThumbnailComponent,
     DashboardComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
