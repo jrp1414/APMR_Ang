@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { LoggingService } from './logging.service';
 // import { ProductListComponent } from '../components/component.index';
 import { Product, products } from '../models/product-api';
+import * as Obs from "./rxjs.index";
 
 
 
@@ -14,7 +15,7 @@ import { Product, products } from '../models/product-api';
 export class ProductService {
 
   constructor(private loggingService:LoggingService) { }
-
+  activate:Obs.Subject<string>= new Obs.Subject();
   Test(){
     this.loggingService.log("Test");
   }

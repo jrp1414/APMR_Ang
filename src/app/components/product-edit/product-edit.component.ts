@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductService} from "../../services/product.service";
 
 @Component({
   selector: 'app-product-edit',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductEditComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ps:ProductService) { }
 
   ngOnInit() {
+  }
+
+  Activate(){
+    this.ps.activate.next(prompt("Enter a Number"));
   }
 
 }

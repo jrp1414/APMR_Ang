@@ -19,6 +19,10 @@ export class ProductListComponent implements OnInit{
         this.productList = this.productService.GetProducts(); 
       }
     });
+
+    this.productService.activate.subscribe((val)=>{
+      console.log(val);
+    });
   }
   constructor(private loggingService:LoggingService,private productService:ProductService) {
 
