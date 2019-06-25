@@ -1,0 +1,19 @@
+<div class="container">
+  <form (ngSubmit)="OnSubmit()" [formGroup]="signUpForm" >
+    <div class="row">
+      <div class="col-md-3">First Name:</div>
+      <div class="col-md-3">
+        <input type="text" class="form-control" [formControlName]="'firstName'" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">Last Name:</div>
+      <div class="col-md-3">
+        <input type="text" class="form-control" [formControlName]="'lastName'" />
+      </div>
+    </div>
+    
+    <button type="submit" class="btn-outline-primary">Save</button>    
+  </form>
+
+</div>

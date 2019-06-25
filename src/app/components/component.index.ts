@@ -8,3 +8,4 @@ export { PropertyBindingComponent } from './property-binding/property-binding.co
 export { EventBindingComponent } from './event-binding/event-binding.component';
 export { StructDirectivesComponent } from './struct-directives/struct-directives.component';
 export { ProductThumbnailComponent } from './product-thumbnail/product-thumbnail.component';
+export {SignUpComponent} from './sign-up/sign-up.component';

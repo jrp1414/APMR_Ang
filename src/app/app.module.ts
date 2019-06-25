@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
 import { RouterModule, Route, Routes } from "@angular/router";
 
@@ -29,6 +29,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { TdfExampleComponent } from './components/tdf-example/tdf-example.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 // const routeConfig:Route[] = [
 const routeConfig: Routes = [
@@ -43,6 +44,7 @@ const routeConfig: Routes = [
     ]
   },
   {path:"tdf",component:TdfExampleComponent},
+  {path:"signup",component:SignUpComponent},
   // { path: "products/:id", component: ProductDetailsComponent },
   { path: "", redirectTo: "home", pathMatch: "full" },
   // { path: "**", redirectTo: "home" },
@@ -70,11 +72,13 @@ const routeConfig: Routes = [
     DashboardComponent,
     ProductDetailsComponent,
     ProductEditComponent,
-    TdfExampleComponent
+    TdfExampleComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routeConfig)
   ],
   providers: [LoggingService, ProductService],
