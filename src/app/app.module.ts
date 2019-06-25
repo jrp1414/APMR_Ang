@@ -28,19 +28,21 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { TdfExampleComponent } from './components/tdf-example/tdf-example.component';
 
 // const routeConfig:Route[] = [
 const routeConfig: Routes = [
   { path: "home", component: DashboardComponent },
   // { path: "products", component: ProductListComponent,canActivate:[AuthGuardService] , children:[
   {
-    path: "products", component: ProductListComponent,canActivateChild:[AuthGuardService], children: [
+    path: "products", component: ProductListComponent,canActivateChild:[], children: [
       // { path: ":id", component: ProductDetailsComponent,canActivate: [AuthGuardService] },
       // { path: ":id/edit", component: ProductEditComponent,canActivate: [AuthGuardService] }
       { path: ":id", component: ProductDetailsComponent },
       { path: ":id/edit", component: ProductEditComponent }
     ]
   },
+  {path:"tdf",component:TdfExampleComponent},
   // { path: "products/:id", component: ProductDetailsComponent },
   { path: "", redirectTo: "home", pathMatch: "full" },
   // { path: "**", redirectTo: "home" },
@@ -67,7 +69,8 @@ const routeConfig: Routes = [
     TempThumbnailComponent,
     DashboardComponent,
     ProductDetailsComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    TdfExampleComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,50 @@
-<p>
-  product-edit works!
-</p>
-<button (click)="Activate()" class="btn btn-outline-primary my-2 my-sm-0">Activate</button>
+<div class="container">
+  <form (ngSubmit)="OnSubmit(f)" #f="ngForm" class="was-validated">
+    <div class="row">
+      <div class="col-md-1">Id:</div>
+      <div class="col-md-2">
+        <input 
+          name="productId" 
+          required 
+          type="number" 
+          class="form-control is-validated" 
+          #name="ngModel"
+          [(ngModel)]="product.productId" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">Name:</div>
+      <div class="col-md-2">
+        <input 
+          type="text" 
+          required 
+          name="productName" 
+          class="form-control is-validated" 
+          [(ngModel)]="product.productName" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">Code:</div>
+      <div class="col-md-2">
+        <input 
+        type="text" 
+        required 
+        name="productCode" 
+        class="form-control is-validated" 
+        #productCode="ngModel" [(ngModel)]="product.productCode" />
+      </div>      
+    </div>
+
+    <div class="row">
+      <div class="col-md-1">Description Text:</div>
+      <div class="col-md-2">
+        
+      </div>      
+    </div>
+    <button type="submit" [disabled]="f.invalid" class="btn-outline-primary">Save</button>
+    <button (click)="SomeMethod()" type="button" class="btn-outline-info">Test</button>
+    <!-- <button type="submit" class="btn-outline-primary">Save</button> -->
+    <!-- <div class="alert alert-info">{{name | json}}</div> -->
+    
+    </form>
+</div>

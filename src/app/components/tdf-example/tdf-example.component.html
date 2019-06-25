@@ -1,0 +1,45 @@
+<div class="container">
+  <form (ngSubmit)="OnSubmit(f)" #f="ngForm">
+    <div class="row">
+      <div class="col-md-1">Name:</div>
+      <div class="col-md-2">
+        <input name="name" required type="text" class="form-control" #name="ngModel" ngModel />
+      </div>
+      <div class="col-md-2"><span *ngIf="name.touched && name.invalid" class="alert alert-danger">Enter Name</span>
+      </div>
+      <!-- <div class="col-md-4">
+        <ul>
+          <li>touched : {{name.touched}}</li>
+          <li>untouched : {{name.untouched}}</li>
+          <li>dirty : {{name.dirty}}</li>
+          <li>pristine : {{name.pristine}}</li>
+          <li>valid : {{name.valid}}</li>
+          <li>invalid : {{name.invalid}}</li>
+          <li>value : {{name.value}}</li>
+        </ul>
+      </div> -->
+    </div>
+    <!-- <div class="row" *ngIf="name.touched && name.valid"> -->
+    <div class="row">
+      <div class="col-md-1">Address:</div>
+      <div class="col-md-2">
+        <input type="text" required name="address" class="form-control" ngModel />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">Email:</div>
+      <div class="col-md-2">
+        <input type="email" email required name="email" class="form-control" #email="ngModel" ngModel />
+      </div>
+      <div class="col-md-2">
+        <span *ngIf="email.errors?.required && email.touched" class="alert alert-danger">Enter Email</span>
+        <span *ngIf="email.touched && email.errors?.email" class="alert alert-danger">Invalid Email Id</span>
+      </div>
+    </div>
+    <button type="submit" [disabled]="f.invalid" class="btn-outline-primary">Save</button>
+    <button type="button" class="btn-outline-primary" (click)="FillData()">Fill Test Data</button>
+    <!-- <div class="alert alert-info">{{name | json}}</div> -->
+
+  </form>
+
+</div>
