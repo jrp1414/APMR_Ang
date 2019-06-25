@@ -1,50 +1,83 @@
 <div class="container">
-  <form (ngSubmit)="OnSubmit(f)" #f="ngForm" class="was-validated">
+  <form (ngSubmit)="OnSubmit(f)" #f="ngForm">
     <div class="row">
       <div class="col-md-1">Id:</div>
-      <div class="col-md-2">
-        <input 
-          name="productId" 
-          required 
-          type="number" 
-          class="form-control is-validated" 
-          #name="ngModel"
-          [(ngModel)]="product.productId" />
+      <div class="col-md-3">
+        <input name="productId" required type="number" class="form-control is-validated" #productId="ngModel" ngModel />
       </div>
     </div>
     <div class="row">
       <div class="col-md-1">Name:</div>
-      <div class="col-md-2">
-        <input 
-          type="text" 
-          required 
-          name="productName" 
-          class="form-control is-validated" 
-          [(ngModel)]="product.productName" />
+      <div class="col-md-3">
+        <input type="text" required name="productName" class="form-control is-validated" #productName="ngModel"
+          ngModel />
       </div>
     </div>
     <div class="row">
       <div class="col-md-1">Code:</div>
-      <div class="col-md-2">
-        <input 
-        type="text" 
-        required 
-        name="productCode" 
-        class="form-control is-validated" 
-        #productCode="ngModel" [(ngModel)]="product.productCode" />
-      </div>      
+      <div class="col-md-3">
+        <input type="text" required name="productCode" class="form-control is-validated" #productCode="ngModel"
+          ngModel />
+      </div>
+    </div>
+
+    <div ngModelGroup="Description" #Description="ngModelGroup">
+      <div class="row">
+        <div class="col-md-1">Description Text:</div>
+        <div class="col-md-3">
+          <textarea required name="descText" class="form-control is-validated" #descText="ngModel" ngModel></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">MFD Year:</div>
+        <div class="col-md-3">
+          <input type="text" required name="mfdYear" class="form-control is-validated" #mfdYear="ngModel" ngModel />
+        </div>
+      </div>
+      <div class="row" *ngIf="Description.invalid">
+        <div class="col-md-4">
+          <div class="alert alert-danger">Error....</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">Release Date:</div>
+      <div class="col-md-3">
+        <input type="date" required name="releaseDate" class="form-control is-validated" #releaseDate="ngModel" ngModel />
+      </div>
     </div>
 
     <div class="row">
-      <div class="col-md-1">Description Text:</div>
-      <div class="col-md-2">
-        
-      </div>      
+      <div class="col-md-1">Rating:</div>
+      <div class="col-md-3">
+        <select name="starRating" required class="form-control is-validated" #starRating="ngModel" ngModel>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
     </div>
-    <button type="submit" [disabled]="f.invalid" class="btn-outline-primary">Save</button>
+    <div class="row">
+      <div class="col-md-1">Rating:</div>
+      <div class="col-md-3">
+        <input type="radio" value="High" name="risk" class="is-validated" #risk="ngModel" ngModel /><span>High</span>
+        <input type="radio" value="Medium" name="risk" class="is-validated" #risk="ngModel" ngModel /><span>Medium</span>
+        <input type="radio" value="Low" name="risk" class="is-validated" #risk="ngModel" ngModel /><span>Low</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">Confidential:</div>
+      <div class="col-md-3">
+        <input type="checkbox" name="confidential" class="is-validated" #confidential="ngModel" ngModel />
+        
+      </div>
+    </div>
+    <button type="submit" class="btn-outline-primary">Save</button>
     <button (click)="SomeMethod()" type="button" class="btn-outline-info">Test</button>
-    <!-- <button type="submit" class="btn-outline-primary">Save</button> -->
+    <!-- <button type="submit" [disabled]="f.invalid" class="btn-outline-primary">Save</button> -->
     <!-- <div class="alert alert-info">{{name | json}}</div> -->
-    
-    </form>
+
+  </form>
 </div>

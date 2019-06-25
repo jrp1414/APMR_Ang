@@ -27,9 +27,13 @@ export class ProductEditComponent implements OnInit {
   }
 
   SomeMethod(){
-    // console.log(this.frm);
+    console.log(this.frm);
     this.product.productCode = "Some Data";
     this.product.productName = "Some Data";
+  }
+
+  OnSubmit(f){
+    console.log(f);
   }
 
 }
