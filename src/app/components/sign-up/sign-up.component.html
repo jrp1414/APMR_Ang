@@ -1,19 +1,57 @@
 <div class="container">
-  <form (ngSubmit)="OnSubmit()" [formGroup]="signUpForm" >
+  <form (ngSubmit)="OnSubmit()" [formGroup]="signUpForm">
     <div class="row">
-      <div class="col-md-3">First Name:</div>
+      <div class="col-md-2">First Name:</div>
       <div class="col-md-3">
         <input type="text" class="form-control" [formControlName]="'firstName'" />
       </div>
     </div>
     <div class="row">
-      <div class="col-md-3">Last Name:</div>
+      <div class="col-md-2">Last Name:</div>
       <div class="col-md-3">
         <input type="text" class="form-control" [formControlName]="'lastName'" />
       </div>
     </div>
-    
-    <button type="submit" class="btn-outline-primary">Save</button>    
+
+    <div [formGroupName]="'address'">
+      <div class="row">
+        <div class="col-md-2">Address Line 1:</div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" [formControlName]="'addLine1'" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">Address Line 2:</div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" [formControlName]="'addLine2'" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">City:</div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" [formControlName]="'city'" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">State:</div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" [formControlName]="'state'" />
+        </div>
+      </div>
+    </div>
+    <div [formArrayName]="'hobbies'">
+      <div class="row">
+        <div class="col-md-2">Hobbies:</div>
+        <div class="col-md-1">
+          <button class="btn btn-primary" type="button" (click)="AddHobby()">Add</button>
+        </div>
+        <div class="col-md-3" >
+          <input type="text" *ngFor="let hobby of hobbies.controls;let i=index;" class="form-control" [formControlName]="i" />
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-outline-primary">Save</button>
   </form>
 
 </div>
