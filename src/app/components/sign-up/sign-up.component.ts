@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,19 +9,21 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 export class SignUpComponent implements OnInit {
   signUpForm:FormGroup;
   hobbies:FormArray=new FormArray([new FormControl()]);
-  
+  addressArray:FormArray=new FormArray([
+    new FormGroup({
+      'addLine1':new FormControl(),
+      'addLine2':new FormControl(),
+      'city':new FormControl(),
+      'state':new FormControl()
+    })
+  ]);
   constructor() { }
 
   ngOnInit() {
     this.signUpForm = new FormGroup({
       'firstName':new FormControl(),
       'lastName':new FormControl(),
-      'address':new FormGroup({
-        'addLine1':new FormControl(),
-        'addLine2':new FormControl(),
-        'city':new FormControl(),
-        'state':new FormControl()
-      }),
+      'addresses':this.addressArray,
       'hobbies':this.hobbies
     });
     // let data = {
@@ -38,7 +40,14 @@ export class SignUpComponent implements OnInit {
     this.hobbies.push(new FormControl());
   }
 
-
+  AddAddress(){
+    this.addressArray.push(new FormGroup({
+      'addLine1':new FormControl(),
+      'addLine2':new FormControl(),
+      'city':new FormControl(),
+      'state':new FormControl()
+    }))
+  }
 
   OnSubmit(){
     console.log(this.signUpForm.value);
