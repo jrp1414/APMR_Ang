@@ -30,6 +30,7 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
 import { AuthGuardService } from './services/auth-guard.service';
 import { TdfExampleComponent } from './components/tdf-example/tdf-example.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { SignUpDeactivateGuardService } from './services/sign-up-deactivate-guard.service';
 
 // const routeConfig:Route[] = [
 const routeConfig: Routes = [
@@ -44,7 +45,7 @@ const routeConfig: Routes = [
     ]
   },
   {path:"tdf",component:TdfExampleComponent},
-  {path:"signup",component:SignUpComponent},
+  {path:"signup",component:SignUpComponent,canDeactivate:[SignUpDeactivateGuardService]},
   // { path: "products/:id", component: ProductDetailsComponent },
   { path: "", redirectTo: "home", pathMatch: "full" },
   // { path: "**", redirectTo: "home" },

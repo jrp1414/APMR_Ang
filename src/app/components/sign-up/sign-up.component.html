@@ -5,13 +5,94 @@
       <div class="col-md-3">
         <input type="text" class="form-control" [formControlName]="'firstName'" />
       </div>
+      <div class="col-md-3">
+        <!-- <span class="alert alert-danger" *ngIf="signUpForm.get('firstName').errors?.required">
+          First Name is a required field
+        </span> -->
+        <span class="alert alert-danger"
+          *ngIf="signUpForm.controls.firstName.errors?.required && signUpForm.controls.firstName.touched">
+          First Name is a required field
+        </span>
+      </div>
     </div>
     <div class="row">
       <div class="col-md-2">Last Name:</div>
       <div class="col-md-3">
         <input type="text" class="form-control" [formControlName]="'lastName'" />
       </div>
+      <div class="col-md-3">
+        <span class="alert alert-danger" *ngIf="signUpForm.get('lastName').errors?.required">
+          Last Name is a required field
+        </span>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-md-2">Notification Type:</div>
+      <div class="col-md-3">
+        <!-- <input type="radio" formControlName="notification" (click)="setNotificationValidation('email')" value="email" /><span>&nbsp; Email</span>
+        <input type="radio" formControlName="notification" (click)="setNotificationValidation('mobileNo')" value="mobileNo" /><span>&nbsp; Mobile No</span> -->
+        <input type="radio" [formControlName]="'notification'" value="email" /><span>&nbsp; Email</span>
+        <input type="radio" formControlName="notification" value="mobileNo" /><span>&nbsp; Mobile No</span>
+      </div>      
+    </div>
+    <div class="row">
+      <div class="col-md-2">Mobile No:</div>
+      <div class="col-md-3">
+        <input type="text" class="form-control" [formControlName]="'mobileNo'" />
+      </div>
+      <div class="col-md-3">
+        <span class="alert alert-danger" *ngIf="signUpForm.get('mobileNo').errors?.required && signUpForm.get('mobileNo').touched">
+          Mobile No is a required field
+        </span>
+      </div>
+    </div>
+    <div formGroupName="emailGroup">
+      <div class="row">
+        <div class="col-md-2">Email:</div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" [formControlName]="'email'" />
+        </div>
+        <div class="col-md-3">
+            <span class="alert alert-danger" *ngIf="signUpForm.get('emailGroup.email').errors?.required && signUpForm.get('emailGroup.email').dirty">
+              Email id is required
+            </span>
+            <span class="alert alert-danger" *ngIf="signUpForm.get('emailGroup.email').errors?.email">
+                Email id is invalid
+            </span>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">Confirm Email:</div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" [formControlName]="'confirmEmail'" />
+        </div>
+        <div class="col-md-3">
+            <span class="alert alert-danger" *ngIf="signUpForm.get('emailGroup.confirmEmail').errors?.required && signUpForm.get('emailGroup.confirmEmail').dirty">
+              Confirm Email id is required
+            </span>
+            <span class="alert alert-danger" *ngIf="signUpForm.get('emailGroup.confirmEmail').errors?.email">
+                Email id is invalid
+            </span>
+          </div>
+      </div>
+      <span class="alert alert-danger" *ngIf="signUpForm.get('emailGroup').errors?.emailMatch">
+        Both Emails not matching
+    </span>
+    </div>
+    <div class="row">
+        <div class="col-md-2">Age:</div>
+        <div class="col-md-3">
+          <input type="number" class="form-control" [formControlName]="'age'" />
+        </div>
+        <div class="col-md-3">
+            <!-- <span class="alert alert-danger" *ngIf="signUpForm.get('age').errors?.required">
+              Age is required
+            </span> -->
+            <span class="alert alert-danger" *ngIf="signUpForm.get('age').errors?.range">
+                Enter Age between 18 and 40
+            </span>
+          </div>
+      </div>
 
     <div>
       <div class="row">
@@ -26,9 +107,9 @@
       </div>
     </div>
 
-    <div [formArrayName]="addresses">
+    <div formArrayName="addresses">
       <button class="btn btn-info" (click)="AddAddress()">Add Address</button>
-      <div class="card" *ngFor="let addr of signUpForm.get('addressArray').controls;let i=index" [formGroupName]="i">
+      <div class="card" *ngFor="let addr of signUpForm.get('addresses').controls;let i=index" [formGroupName]="i">
         <div class="row">
           <div class="col-md-2">Address Line 1:</div>
           <div class="col-md-3">
