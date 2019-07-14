@@ -1,0 +1,70 @@
+<div class="card bg-light">
+  <div class="card-title">
+    <h3>{{(student.FirstName+''+student.LastName) | uppercase}}</h3>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-3">
+        Mobile No
+      </div>
+      <div class="col-md-5">
+        {{student.MobileNo}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        Email Id
+      </div>
+      <div class="col-md-5">
+        {{student.EmailId}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        Address Line 1
+      </div>
+      <div class="col-md-5">
+        {{student.Address?.AddLine1}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        Address Line 2
+      </div>
+      <div class="col-md-5">
+        {{student.Address?.AddLine2}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        Address Line 3
+      </div>
+      <div class="col-md-5">
+        {{student.Address?.AddLine3}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        City
+      </div>
+      <div class="col-md-5">
+        {{student.Address?.City}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        State
+      </div>
+      <div class="col-md-5">
+        {{student.Address?.State}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <button class="btn btn-primary btn-sm" (click)="Edit()">Edit</button>
+      </div>
+      
+    </div>
+    <ng-content></ng-content>
+  </div>
+</div>

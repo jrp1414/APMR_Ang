@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
 import { RouterModule, Route, Routes } from "@angular/router";
+import { HttpClientModule } from "@angular/common/http";
 
 import {
   AppComponent,
@@ -31,22 +32,32 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { TdfExampleComponent } from './components/tdf-example/tdf-example.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignUpDeactivateGuardService } from './services/sign-up-deactivate-guard.service';
+import { StudentsComponent } from './students/students.component';
+import { StudentDetailsComponent } from './students/student-details/student-details.component';
+import { StudentNewComponent } from './students/student-new/student-new.component';
 
 // const routeConfig:Route[] = [
 const routeConfig: Routes = [
   { path: "home", component: DashboardComponent },
   // { path: "products", component: ProductListComponent,canActivate:[AuthGuardService] , children:[
   {
-    path: "products", component: ProductListComponent,canActivateChild:[], children: [
+    path: "products", component: ProductListComponent, canActivateChild: [], children: [
       // { path: ":id", component: ProductDetailsComponent,canActivate: [AuthGuardService] },
       // { path: ":id/edit", component: ProductEditComponent,canActivate: [AuthGuardService] }
       { path: ":id", component: ProductDetailsComponent },
       { path: ":id/edit", component: ProductEditComponent }
     ]
   },
-  {path:"tdf",component:TdfExampleComponent},
-  {path:"signup",component:SignUpComponent,canDeactivate:[SignUpDeactivateGuardService]},
-  // { path: "products/:id", component: ProductDetailsComponent },
+  { path: "tdf", component: TdfExampleComponent },
+  { path: "signup", component: SignUpComponent, canDeactivate: [SignUpDeactivateGuardService] },
+  {
+    path: "students", component: StudentsComponent,
+    children:[
+      {path:"new",component:StudentNewComponent},
+      {path:":id",component:StudentDetailsComponent}
+      
+    ]
+  },
   { path: "", redirectTo: "home", pathMatch: "full" },
   // { path: "**", redirectTo: "home" },
 ];
@@ -74,13 +85,17 @@ const routeConfig: Routes = [
     ProductDetailsComponent,
     ProductEditComponent,
     TdfExampleComponent,
-    SignUpComponent
+    SignUpComponent,
+    StudentsComponent,
+    StudentDetailsComponent,
+    StudentNewComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routeConfig)
+    RouterModule.forRoot(routeConfig),
+    HttpClientModule
   ],
   providers: [LoggingService, ProductService],
   bootstrap: [AppComponent]
