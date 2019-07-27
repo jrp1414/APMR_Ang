@@ -1,0 +1,66 @@
+<form (ngSubmit)="OnStudentEdited()" [formGroup]="studentForm">
+  <div class="card">
+    <div class="card-title">
+      <h3>Add New Student</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-2">First Name</div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" formControlName="FirstName" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">Last Name</div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" formControlName="LastName" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">Mobile No</div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" formControlName="MobileNo" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">Email Id</div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" formControlName="EmailId" />
+        </div>
+      </div>
+      <div formGroupName="Address">
+        <div class="row">
+          <div class="col-md-2">Address Line 1</div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" formControlName="AddLine1" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">Address Line 2</div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" formControlName="AddLine2" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">Address Line 3</div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" formControlName="AddLine3" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">City</div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" formControlName="City" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">State</div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" formControlName="State" />
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Save</button>
+    </div>
+  </div>
+</form>

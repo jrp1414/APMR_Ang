@@ -35,6 +35,7 @@ import { SignUpDeactivateGuardService } from './services/sign-up-deactivate-guar
 import { StudentsComponent } from './students/students.component';
 import { StudentDetailsComponent } from './students/student-details/student-details.component';
 import { StudentNewComponent } from './students/student-new/student-new.component';
+import { StudentEditComponent } from './students/student-edit/student-edit.component';
 
 // const routeConfig:Route[] = [
 const routeConfig: Routes = [
@@ -54,8 +55,8 @@ const routeConfig: Routes = [
     path: "students", component: StudentsComponent,
     children:[
       {path:"new",component:StudentNewComponent},
-      {path:":id",component:StudentDetailsComponent}
-      
+      {path:":id",component:StudentDetailsComponent},
+      {path:":id/edit",component:StudentEditComponent}
     ]
   },
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -88,7 +89,8 @@ const routeConfig: Routes = [
     SignUpComponent,
     StudentsComponent,
     StudentDetailsComponent,
-    StudentNewComponent
+    StudentNewComponent,
+    StudentEditComponent
   ],
   imports: [
     BrowserModule,

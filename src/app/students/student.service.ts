@@ -24,4 +24,12 @@ export class StudentService {
   AddStudent(student:Student){
     return this.http.post(this.baseUrl+"AddStudent/",student);
   }
+
+  EditStudent(id:number, student:Student){
+    return this.http.put(this.baseUrl+"UpdateStudent/"+id,student);
+  }
+
+  DeleteStudent(id:number){
+    return this.http.delete(this.baseUrl+"DeleteStudent/"+id);
+  }
 }

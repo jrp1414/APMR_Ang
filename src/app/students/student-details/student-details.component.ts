@@ -22,8 +22,20 @@ export class StudentDetailsComponent implements OnInit {
       this.ss.GetStudent(id).subscribe((data)=>{
         this.student = <Student>data;
       });
-    });
-    
+    });    
+  }
+
+  Edit(){
+    this.router.navigate(["edit"],{relativeTo:this.route});
+  }
+
+  Delete(){
+    if(confirm("Are you sure to delete the Student?")){
+      this.ss.DeleteStudent(this.student.StudentId).subscribe((resp)=>{
+        this.ss.RefreshData.emit(<Student[]>resp);
+        this.router.navigate(["students"]);
+      });
+    }
   }
 
 }
