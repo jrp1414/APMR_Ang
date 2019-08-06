@@ -8,6 +8,8 @@ import {
   AbstractControl,
   ValidatorFn
 } from '@angular/forms';
+import { User } from '../../models/User';
+import { AuthService } from '../../services/auth.service';
 
 function EmailMatch(c: AbstractControl): { [key: string]: boolean } | null {
   let email = c.get("email");
@@ -51,70 +53,24 @@ function RangeValidator(min:number,max:number):ValidatorFn{
 })
 export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
-  // hobbies:FormArray=new FormArray([new FormControl()]);
-  // addressArray:FormArray=new FormArray([
-  //   new FormGroup({
-  //     'addLine1':new FormControl(),
-  //     'addLine2':new FormControl(),
-  //     'city':new FormControl(),
-  //     'state':new FormControl()
-  //   })
-  // ]);
-  constructor(private fb: FormBuilder) { }
-
+  constructor(private fb: FormBuilder,private auth:AuthService ) { }
+  user:User;
   ngOnInit() {
     this.signUpForm = this.fb.group({
       'firstName': ["", Validators.required],
       'lastName': ["", Validators.required],
-      'emailGroup': this.fb.group({
-        'email': ["", [Validators.email, Validators.required]],
-        'confirmEmail': ["", [Validators.email, Validators.required]],
-      },{validator:EmailMatch}),
+      'email': ["", [Validators.email, Validators.required]],
       'mobileNo':'',
-      'notification':'email',
-      // 'age': [0, RangeValidator],
-      'age': [0, RangeValidator(18,40)],
-      'addresses': this.fb.array([this.fb.group({
-        'addLine1': "",
-        'addLine2': "",
-        'city': "",
-        'state': ""
-      })
-      ]),
-      'hobbies': this.fb.array([this.fb.control("")])
+      'password':'',
+      'confirmPassword':''
     });
-
-    this.signUpForm.get('notification').valueChanges.subscribe((value:string)=>{
-      this.setNotificationValidation(value);
-    });
-  }
-
-  AddHobby() {
-    (<FormArray>this.signUpForm.get("hobbies")).push(this.fb.control(""));
-  }
-
-  AddAddress() {
-    (<FormArray>this.signUpForm.get('addresses')).push(this.fb.group({
-      'addLine1': "",
-      'addLine2': "",
-      'city': "",
-      'state': ""
-    }))
   }
 
   OnSubmit() {
-    console.log(this.signUpForm);
-  }
-
-  setNotificationValidation(notificationType:string){
-    let mobileNo= this.signUpForm.get('mobileNo');
-
-    if (notificationType=='mobileNo') {
-      mobileNo.setValidators(Validators.required);      
-    }else{
-      mobileNo.clearValidators(); 
-    }
-    mobileNo.updateValueAndValidity();
-  }
-
+    let data =this.signUpForm.value;
+    this.user = new User(0,data.firstName,data.lastName,data.mobileNo,data.email,data.password);
+    this.auth.Register(this.user).subscribe((resp)=>{
+      console.log(resp);
+    });
+  }  
 }

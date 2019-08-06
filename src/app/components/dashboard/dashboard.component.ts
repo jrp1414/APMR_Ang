@@ -22,41 +22,41 @@ export class DashboardComponent implements OnInit,OnDestroy {
     //   console.log(num);
     // });
 
-    const custObser= Obs.Observable.create((observer:Obs.Observer<string>)=>{
-      setTimeout(() => {
-        observer.next("First Instance Emitted");
-      }, 2000);
+    // const custObser= Obs.Observable.create((observer:Obs.Observer<string>)=>{
+    //   setTimeout(() => {
+    //     observer.next("First Instance Emitted");
+    //   }, 2000);
 
-      setTimeout(() => {
-        observer.next("Second Instance Emitted");
-      }, 5000);
+    //   setTimeout(() => {
+    //     observer.next("Second Instance Emitted");
+    //   }, 5000);
 
-      // setTimeout(() => {
-      //   observer.error({errorCode:1,errorMessage:"Some Error Occurred during execution"});
-      // }, 6000);
+    //   // setTimeout(() => {
+    //   //   observer.error({errorCode:1,errorMessage:"Some Error Occurred during execution"});
+    //   // }, 6000);
 
-      // setTimeout(() => {
-      //   observer.complete();
-      // }, 6000);
+    //   // setTimeout(() => {
+    //   //   observer.complete();
+    //   // }, 6000);
 
-      setTimeout(() => {
-        observer.next("Third Instance Emitted");
-      }, 7000);
+    //   setTimeout(() => {
+    //     observer.next("Third Instance Emitted");
+    //   }, 7000);
 
-    });
+    // });
 
 
-    this.custSubs =custObser.subscribe(
-      (val)=>{console.log(val);},
-      (error)=>{console.error(error.errorMessage)},
-      ()=>{console.warn("Process Complete")}
-    );
+    // this.custSubs =custObser.subscribe(
+    //   (val)=>{console.log(val);},
+    //   (error)=>{console.error(error.errorMessage)},
+    //   ()=>{console.warn("Process Complete")}
+    // );
      
   }
 
   ngOnDestroy(): void {
     // this.numSubscription.unsubscribe();
-    this.custSubs.unsubscribe();
+    // this.custSubs.unsubscribe();
   }
 
 }

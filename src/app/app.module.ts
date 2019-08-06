@@ -52,6 +52,7 @@ const routeConfig: Routes = [
   { path: "tdf", component: TdfExampleComponent },
   { path: "signup", component: SignUpComponent, canDeactivate: [SignUpDeactivateGuardService] },
   {
+    // path: "students", component: StudentsComponent,canActivate:[AuthGuardService],
     path: "students", component: StudentsComponent,
     children:[
       {path:"new",component:StudentNewComponent},
