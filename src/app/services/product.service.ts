@@ -13,14 +13,17 @@ import * as Obs from "./rxjs.index";
 @Injectable(  
  )
 export class ProductService {
+  productsList:Product[];
 
-  constructor(private loggingService:LoggingService) { }
+  constructor(private loggingService:LoggingService) {
+    this.productsList = products;
+   }
   activate:Obs.Subject<string>= new Obs.Subject();
   Test(){
     this.loggingService.log("Test");
   }
 
-  productsList:Product[] = products.splice(0);
+   
 
   GetProducts(){
     return this.productsList;
@@ -39,12 +42,14 @@ export class ProductService {
   }
 
   RemoveProduct(productId:number){
-    let tempProductList:Product[] = [];
-    this.productsList.forEach((val)=>{
-      if (val.productId!==productId) {
-         tempProductList.push(val);
-      }
-    });
-    this.productsList = tempProductList;
+    // let tempProductList:Product[] = [];
+    // this.productsList.forEach((val)=>{
+    //   if (val.productId!==productId) {
+    //      tempProductList.push(val);
+    //   }
+    // });
+    // this.productsList = tempProductList;
+
+    this.productsList = this.productsList.filter((prod)=>prod.productId!==productId);
   }
 }
